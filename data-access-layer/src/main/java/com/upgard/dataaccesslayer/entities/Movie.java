@@ -23,9 +23,18 @@ public class Movie {
     @Column(length = 500, nullable = false)
     private int movie_duration ;
 
+
+    @Column(length = 500,nullable = false)
+    private String cover_photo_url ;
+
+    @Column(length = 500,nullable = false)
+    private String trailer_url ;
+
     public int getMovie_id() {
         return movie_id;
     }
+
+
 
     public void setMovie_id(int movie_id) {
         this.movie_id = movie_id;
@@ -79,10 +88,6 @@ public class Movie {
         this.trailer_url = trailer_url;
     }
 
-    @Column(length = 500,nullable = false)
-    private String cover_photo_url ;
 
-    @Column(length = 500,nullable = false)
-    private String trailer_url ;
 
 }
