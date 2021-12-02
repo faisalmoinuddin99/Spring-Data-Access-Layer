@@ -68,6 +68,14 @@ public class CityDaoImpl implements CityDao{
 
     @Override
     public void delete(City city) {
+        Session session = sessionFactory.openSession() ;
+        Transaction transaction = session.beginTransaction() ;
+
+        City mergedCity = (City) session.merge(city) ;
+        session.delete(mergedCity);
+
+        transaction.commit();
+        session.close();
 
     }
 }
