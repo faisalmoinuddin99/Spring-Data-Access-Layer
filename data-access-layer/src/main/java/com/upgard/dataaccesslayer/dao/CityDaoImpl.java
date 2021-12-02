@@ -12,6 +12,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Repository
 public class CityDaoImpl implements CityDao{
+
     private SessionFactory sessionFactory ;
 
     @Autowired
