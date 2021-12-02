@@ -41,7 +41,15 @@ public class CityDaoImpl implements CityDao{
 
     @Override
     public City findById(int id) {
-        return null;
+        Session session = this.sessionFactory.openSession() ;
+        Transaction transaction = session.beginTransaction() ;
+
+        City city = session.get(City.class, id) ;
+
+        transaction.commit();
+        session.close();
+
+        return city ;
     }
 
     @Override
