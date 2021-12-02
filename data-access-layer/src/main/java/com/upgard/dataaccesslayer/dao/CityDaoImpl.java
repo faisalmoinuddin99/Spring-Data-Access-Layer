@@ -54,7 +54,16 @@ public class CityDaoImpl implements CityDao{
 
     @Override
     public City update(City city) {
-        return null;
+
+        Session session = this.sessionFactory.openSession() ;
+        Transaction transaction = session.beginTransaction() ;
+
+        session.update(city);
+
+        transaction.commit();
+        session.close();
+
+    return  city ;
     }
 
     @Override
