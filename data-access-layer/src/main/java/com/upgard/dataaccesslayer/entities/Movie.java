@@ -21,7 +21,7 @@ public class Movie {
     private LocalDateTime release_date ;
 
     @Column(length = 500, nullable = false)
-    private int movieDuration ;
+    private int duration ;
 
 
     @Column(length = 500,nullable = false)
@@ -63,11 +63,11 @@ public class Movie {
     }
 
     public int getMovieDuration() {
-        return movieDuration;
+        return duration;
     }
 
     public void setMovieDuration(int movieDuration) {
-        this.movieDuration = movieDuration;
+        this.duration = movieDuration;
     }
 
     public String getCoverPhotoUrl() {

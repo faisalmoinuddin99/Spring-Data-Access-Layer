@@ -8,5 +8,5 @@ import java.util.List;
 public interface MovieDao extends JpaRepository<Movie,Integer> {
 
     public List<Movie> findBymovieName(String name) ;
-    public List<Movie> findBymovieNameAndmovieDuration(String name, int duration) ;
+    public List<Movie> findBymovieNameAndDuration(String name, int duration) ;
 }

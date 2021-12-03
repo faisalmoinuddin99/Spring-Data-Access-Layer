@@ -56,7 +56,7 @@ public class DataAccessLayerApplication {
 				.forEach(movie -> System.out.println(movie.getMovieName()));
 
 		System.out.println("**** find by movie name and duration ****");
-		movieDao.findBymovieNameAndmovieDuration("Avengers: Infinity War", 150)
+		movieDao.findBymovieNameAndDuration("Avengers: Infinity War", 150)
 				.forEach(movie -> System.out.println(movie.getMovieName()));
 
 
