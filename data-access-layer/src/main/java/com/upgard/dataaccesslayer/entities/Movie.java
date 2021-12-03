@@ -11,7 +11,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int movie_id ;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 200, nullable = false)
     private String movie_name ;
 
     @Column(length = 1000, nullable = false)
