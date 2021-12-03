@@ -1,6 +1,7 @@
 package com.upgard.dataaccesslayer;
 
 import com.upgard.dataaccesslayer.dao.MovieDao;
+import com.upgard.dataaccesslayer.dao.TheatreDao;
 import com.upgard.dataaccesslayer.entities.Movie;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -59,6 +60,9 @@ public class DataAccessLayerApplication {
 		movieDao.findBymovieNameAndDuration("Avengers: Infinity War", 150)
 				.forEach(movie -> System.out.println(movie.getMovieName()));
 
+
+		// Theatre CRUD operation and Pagination
+		TheatreDao theatreDao = context.getBean(TheatreDao.class) ;
 
 	}
 

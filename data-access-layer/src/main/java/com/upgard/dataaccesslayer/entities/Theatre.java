@@ -8,35 +8,35 @@ public class Theatre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int theatre_id ;
+    private int theatreId ;
 
     @Column(nullable = false, unique = true)
-    private String theatre_name ;
+    private String theatreName ;
 
     @Column(nullable = false, columnDefinition = "DECIMAL(13, 2) default '150.00'" )
-    private double ticket_price ;
+    private double ticketPrice ;
 
-    public int getTheatre_id() {
-        return theatre_id;
+    public int getTheatreId() {
+        return theatreId;
     }
 
-    public void setTheatre_id(int theatre_id) {
-        this.theatre_id = theatre_id;
+    public void setTheatreId(int theatreId) {
+        this.theatreId = theatreId;
     }
 
-    public String getTheatre_name() {
-        return theatre_name;
+    public String getTheatreName() {
+        return theatreName;
     }
 
-    public void setTheatre_name(String theatre_name) {
-        this.theatre_name = theatre_name;
+    public void setTheatreName(String theatreName) {
+        this.theatreName = theatreName;
     }
 
-    public double getTicket_price() {
-        return ticket_price;
+    public double getTicketPrice() {
+        return ticketPrice;
     }
 
-    public void setTicket_price(double ticket_price) {
-        this.ticket_price = ticket_price;
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 }
