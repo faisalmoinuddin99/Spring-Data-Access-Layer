@@ -3,6 +3,7 @@ package com.upgard.dataaccesslayer;
 import com.upgard.dataaccesslayer.dao.MovieDao;
 import com.upgard.dataaccesslayer.dao.TheatreDao;
 import com.upgard.dataaccesslayer.entities.Movie;
+import com.upgard.dataaccesslayer.entities.Theatre;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -64,6 +65,34 @@ public class DataAccessLayerApplication {
 		// Theatre CRUD operation and Pagination
 		TheatreDao theatreDao = context.getBean(TheatreDao.class) ;
 
+		Theatre theatre1 = new Theatre() ;
+		theatre1.setTheatreName("Prithvi Theatre");
+		theatre1.setTicketPrice(400.00);
+
+		Theatre theatre2 = new Theatre() ;
+		theatre2.setTheatreName("Maratha Mandir");
+		theatre2.setTicketPrice(350.00);
+
+		Theatre theatre3 = new Theatre() ;
+		theatre3.setTheatreName("Tata Theatre");
+		theatre3.setTicketPrice(450.00);
+
+		Theatre theatre4 = new Theatre() ;
+		theatre4.setTheatreName("Regal Cinema - Mumbai");
+		theatre4.setTicketPrice(500.00);
+
+		Theatre theatre5 = new Theatre() ;
+		theatre5.setTheatreName("Liberty Carnival Cinemas");
+		theatre5.setTicketPrice(250.00);
+
+		List<Theatre> theatres = new ArrayList<>() ;
+		theatres.add(theatre1) ;
+		theatres.add(theatre2) ;
+		theatres.add(theatre3) ;
+		theatres.add(theatre4) ;
+		theatres.add(theatre5) ;
+
+		theatreDao.saveAll(theatres) ;
 	}
 
 }
