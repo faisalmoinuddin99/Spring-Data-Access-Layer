@@ -7,6 +7,8 @@ import com.upgard.dataaccesslayer.entities.Theatre;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -93,6 +95,15 @@ public class DataAccessLayerApplication {
 		theatres.add(theatre5) ;
 
 		theatreDao.saveAll(theatres) ;
+
+		// Pagination
+		System.out.println("****************** Finding First Page of the theatre *********************");
+		Page<Theatre> page0 = theatreDao.findAll(PageRequest.of(0,2)) ;
+		page0.stream().forEach(theatre -> System.out.println(theatre.getTheatreName()));
+
+		System.out.println("****************** Finding Second Page of the theatre *********************");
+		Page<Theatre> page1 = theatreDao.findAll(PageRequest.of(1,2)) ;
+		page1.stream().forEach(theatre -> System.out.println(theatre.getTheatreName()));
 	}
 
 }
