@@ -1,9 +1,13 @@
 package com.upgard.dataaccesslayer;
 
+import com.upgard.dataaccesslayer.dao.LanguageDao;
 import com.upgard.dataaccesslayer.dao.MovieDao;
 import com.upgard.dataaccesslayer.dao.TheatreDao;
+import com.upgard.dataaccesslayer.dao.UserTypeDao;
+import com.upgard.dataaccesslayer.entities.Language;
 import com.upgard.dataaccesslayer.entities.Movie;
 import com.upgard.dataaccesslayer.entities.Theatre;
+import com.upgard.dataaccesslayer.entities.UserType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,11 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class DataAccessLayerApplication {
+public class MovieBookingApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context =  SpringApplication.run(DataAccessLayerApplication.class, args);
+		ApplicationContext context =  SpringApplication.run(MovieBookingApplication.class, args);
 
 		/*
 		CityDao cityDao = context.getBean(CityDao.class) ;
@@ -104,6 +108,41 @@ public class DataAccessLayerApplication {
 		System.out.println("****************** Finding Second Page of the theatre *********************");
 		Page<Theatre> page1 = theatreDao.findAll(PageRequest.of(1,2)) ;
 		page1.stream().forEach(theatre -> System.out.println(theatre.getTheatreName()));
+
+
+		// Language Entity
+		LanguageDao languageDao = context.getBean(LanguageDao.class) ;
+
+		Language language1 = new Language() ;
+		language1.setLanguage_name("Hindi");
+
+		Language language2 = new Language() ;
+		language2.setLanguage_name("English");
+
+		List<Language> languages = new ArrayList<>() ;
+		languages.add(language1) ;
+		languages.add(language2) ;
+
+		languageDao.saveAll(languages) ;
+
+
+		// UserType Entity
+		UserTypeDao userTypeDao = context.getBean(UserTypeDao.class) ;
+
+		UserType userType1 = new UserType() ;
+		userType1.setUser_type_name("Admin");
+
+		UserType userType2 = new UserType() ;
+		userType2.setUser_type_name("Customer");
+
+		List<UserType> userTypes = new ArrayList<>() ;
+		userTypes.add(userType1) ;
+		userTypes.add(userType2) ;
+
+		userTypeDao.saveAll(userTypes) ;
+
 	}
+
+
 
 }
