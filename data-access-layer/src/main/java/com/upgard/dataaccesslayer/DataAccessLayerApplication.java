@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class DataAccessLayerApplication {
@@ -35,7 +37,21 @@ public class DataAccessLayerApplication {
 		movie1.setCover_photo_url("https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg");
 		movie1.setTrailer_url("https://youtu.be/6ZfuNTqbHE8");
 
-		System.out.println(movieDao.save(movie1)) ;
+		Movie movie2 = new Movie() ;
+
+		movie2.setMovie_name("Batman v Superman: Dawn of Justice");
+		movie2.setMovie_desc("Bruce Wayne, a billionaire, believes that Superman is a threat to humanity after his battle in Metropolis. " +
+				"Thus, he decides to adopt his mantle of Batman and defeat him once and for all.");
+		movie2.setRelease_date(LocalDateTime.of(2016,3,25,2,31));
+		movie2.setMovie_duration(120);
+		movie2.setCover_photo_url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTyyCYy3OZeCzFfY71jjpeavzbKjXsXjHiUiyOlvPYht81UR9lp");
+		movie2.setTrailer_url("https://youtu.be/0WWzgGyAH6Y");
+
+		List<Movie> movies = new ArrayList<>() ;
+		movies.add(movie1) ;
+		movies.add(movie2) ;
+
+		movieDao.saveAll(movies) ;
 	}
 
 }
