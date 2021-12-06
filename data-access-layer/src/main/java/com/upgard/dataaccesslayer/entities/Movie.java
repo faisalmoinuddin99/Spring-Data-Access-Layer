@@ -40,7 +40,60 @@ public class Movie {
     @JoinColumn(name = "languageId", nullable = false)
     private Language language ;
 
+    public Movie() {
 
+    }
+
+    public Movie(int movie_id, String movieName, String movieDesc, LocalDateTime release_date, int duration, String coverPhotoUrl, String trailerUrl, Status status, Language language) {
+        this.movie_id = movie_id;
+        this.movieName = movieName;
+        this.movieDesc = movieDesc;
+        this.release_date = release_date;
+        this.duration = duration;
+        this.coverPhotoUrl = coverPhotoUrl;
+        this.trailerUrl = trailerUrl;
+        this.status = status;
+        this.language = language;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movie_id=" + movie_id +
+                ", movieName='" + movieName + '\'' +
+                ", movieDesc='" + movieDesc + '\'' +
+                ", release_date=" + release_date +
+                ", duration=" + duration +
+                ", coverPhotoUrl='" + coverPhotoUrl + '\'' +
+                ", trailerUrl='" + trailerUrl + '\'' +
+                ", status=" + status +
+                ", language=" + language +
+                '}';
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
 
     public int getMovie_id() {
         return movie_id;
