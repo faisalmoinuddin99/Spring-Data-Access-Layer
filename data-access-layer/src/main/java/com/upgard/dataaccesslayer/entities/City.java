@@ -1,6 +1,7 @@
 package com.upgard.dataaccesslayer.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "city")
@@ -8,24 +9,28 @@ public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int city_id ;
+    private int cityId ;
 
     @Column(nullable = false)
-    private String city_name ;
+    private String cityName ;
 
-    public int getCity_id() {
-        return city_id;
+
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
+    private Set<Theatre> theatres ;
+
+    public int getCityId() {
+        return cityId;
     }
 
-    public void setCity_id(int city_id) {
-        this.city_id = city_id;
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 
-    public String getCity_name() {
-        return city_name;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity_name(String city_name) {
-        this.city_name = city_name;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }

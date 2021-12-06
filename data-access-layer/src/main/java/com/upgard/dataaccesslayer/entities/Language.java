@@ -1,6 +1,7 @@
 package com.upgard.dataaccesslayer.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "language")
@@ -8,24 +9,28 @@ public class Language {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int language_id ;
+    private int languageId ;
 
     @Column(nullable = false, unique = true)
-    private String language_name ;
+    private String languageName ;
 
-    public int getLanguage_id() {
-        return language_id;
+    public int getLanguageId() {
+        return languageId;
     }
 
-    public void setLanguage_id(int language_id) {
-        this.language_id = language_id;
+
+
+
+
+    public void setLanguageId(int languageId) {
+        this.languageId = languageId;
     }
 
-    public String getLanguage_name() {
-        return language_name;
+    public String getLanguageName() {
+        return languageName;
     }
 
-    public void setLanguage_name(String language_name) {
-        this.language_name = language_name;
+    public void setLanguageName(String languageName) {
+        this.languageName = languageName;
     }
 }

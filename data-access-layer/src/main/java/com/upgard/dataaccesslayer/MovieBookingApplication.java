@@ -1,13 +1,7 @@
 package com.upgard.dataaccesslayer;
 
-import com.upgard.dataaccesslayer.dao.LanguageDao;
-import com.upgard.dataaccesslayer.dao.MovieDao;
-import com.upgard.dataaccesslayer.dao.TheatreDao;
-import com.upgard.dataaccesslayer.dao.UserTypeDao;
-import com.upgard.dataaccesslayer.entities.Language;
-import com.upgard.dataaccesslayer.entities.Movie;
-import com.upgard.dataaccesslayer.entities.Theatre;
-import com.upgard.dataaccesslayer.entities.UserType;
+import com.upgard.dataaccesslayer.dao.*;
+import com.upgard.dataaccesslayer.entities.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -68,6 +62,13 @@ public class MovieBookingApplication {
 				.forEach(movie -> System.out.println(movie.getMovieName()));
 
 
+		// City
+		CityDaoImpl cityDao = context.getBean(CityDaoImpl.class) ;
+		City city1 = new City() ;
+
+		city1.setCityName("Mumbai");
+		cityDao.save(city1) ;
+
 		// Theatre CRUD operation and Pagination
 		TheatreDao theatreDao = context.getBean(TheatreDao.class) ;
 
@@ -114,10 +115,10 @@ public class MovieBookingApplication {
 		LanguageDao languageDao = context.getBean(LanguageDao.class) ;
 
 		Language language1 = new Language() ;
-		language1.setLanguage_name("Hindi");
+		language1.setLanguageName("Hindi");
 
 		Language language2 = new Language() ;
-		language2.setLanguage_name("English");
+		language2.setLanguageName("English");
 
 		List<Language> languages = new ArrayList<>() ;
 		languages.add(language1) ;
@@ -130,10 +131,10 @@ public class MovieBookingApplication {
 		UserTypeDao userTypeDao = context.getBean(UserTypeDao.class) ;
 
 		UserType userType1 = new UserType() ;
-		userType1.setUser_type_name("Admin");
+		userType1.setUsetTypeName("Admin");
 
 		UserType userType2 = new UserType() ;
-		userType2.setUser_type_name("Customer");
+
 
 		List<UserType> userTypes = new ArrayList<>() ;
 		userTypes.add(userType1) ;

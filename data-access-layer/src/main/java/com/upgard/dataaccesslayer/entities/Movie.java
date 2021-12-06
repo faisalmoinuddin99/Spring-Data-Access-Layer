@@ -30,6 +30,18 @@ public class Movie {
     @Column(length = 500,nullable = false)
     private String trailerUrl ;
 
+    // Relationship b/w Movie and Status
+    @ManyToOne
+    @JoinColumn(name = "statusId", nullable = false)
+    private Status status ;
+
+    // Relationship b/w Movie and Language
+    @ManyToOne
+    @JoinColumn(name = "languageId", nullable = false)
+    private Language language ;
+
+
+
     public int getMovie_id() {
         return movie_id;
     }

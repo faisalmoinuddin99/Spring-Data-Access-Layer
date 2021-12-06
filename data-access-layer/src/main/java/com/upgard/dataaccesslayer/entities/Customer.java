@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cust_id ;
+    private int customerId ;
 
     @Column(name = "first_name", length = 20, nullable = false)
     private String firstName;
@@ -25,13 +25,20 @@ public class Customer {
     @Column(nullable = false)
     private LocalDateTime dateOfBirth ;
 
+    @ManyToOne
+    @JoinColumn(name = "userTypeId", nullable = false)
+    private UserType userType ;
+
+    @ManyToOne
+    @JoinColumn(name = "languageId", nullable = false)
+    private Language language ;
 
     public int getCust_id() {
-        return cust_id;
+        return customerId;
     }
 
     public void setCust_id(int cust_id) {
-        this.cust_id = cust_id;
+        this.customerId = cust_id;
     }
 
     public String getFirstName() {

@@ -13,8 +13,12 @@ public class Theatre {
     @Column(nullable = false, unique = true)
     private String theatreName ;
 
-    @Column(nullable = false, columnDefinition = "DECIMAL(13, 2) default '150.00'" )
-    private double ticketPrice ;
+    @Column(nullable = false )
+    private double ticketPrice = 150.00;
+
+    @ManyToOne
+    @JoinColumn(name = "cityId", nullable = false)
+    private City city ;
 
     public int getTheatreId() {
         return theatreId;
