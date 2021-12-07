@@ -1,4 +1,4 @@
-package com.upgard.dataaccesslayer.exception;
+package com.upgard.dataaccesslayer.exceptions;
 
 public class MovieDetailsNotFoundException extends Exception{
     public MovieDetailsNotFoundException() {

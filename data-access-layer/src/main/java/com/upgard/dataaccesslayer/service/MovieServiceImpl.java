@@ -2,7 +2,7 @@ package com.upgard.dataaccesslayer.service;
 
 import com.upgard.dataaccesslayer.dao.MovieDao;
 import com.upgard.dataaccesslayer.entities.Movie;
-import com.upgard.dataaccesslayer.exception.MovieDetailsNotFoundException;
+import com.upgard.dataaccesslayer.exceptions.MovieDetailsNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 @Service(value = "movieService")
- public class MovieServiceImpl implements MovieSerive{
+ public class MovieServiceImpl implements MovieService {
     
     @Autowired
     public MovieDao movieDao ;
