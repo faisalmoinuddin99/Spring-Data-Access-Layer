@@ -24,7 +24,7 @@ public class MovieBookingApplication {
 		City city = new City() ;
 		city.setCity_name("Mumbai");
 		System.out.println(cityDao.save( city)); */
-
+/*
 		MovieDao movieDao = context.getBean(MovieDao.class) ;
 
 		Movie movie1 = new Movie() ;
@@ -141,7 +141,7 @@ public class MovieBookingApplication {
 		userTypes.add(userType2) ;
 
 		userTypeDao.saveAll(userTypes) ;
-
+*/
 	}
 
 

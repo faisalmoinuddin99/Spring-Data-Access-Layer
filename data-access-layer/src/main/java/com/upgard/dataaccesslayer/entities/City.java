@@ -8,7 +8,7 @@ import java.util.Set;
 public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cityId ;
 
     @Column(nullable = false)

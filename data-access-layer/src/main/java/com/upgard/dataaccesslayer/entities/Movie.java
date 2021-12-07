@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int movie_id ;
 
     @Column(length = 200, nullable = false)
