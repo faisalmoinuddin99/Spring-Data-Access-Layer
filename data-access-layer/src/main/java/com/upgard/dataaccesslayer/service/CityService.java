@@ -14,4 +14,6 @@ public interface CityService {
     public boolean deleteCity(int id) throws CityDetailsNotFoundException ;
     public List<City> getAllCityDetails() ;
 
+    public List<City> acceptMultipleCityDetails(List<City> cities) ;
+
 }

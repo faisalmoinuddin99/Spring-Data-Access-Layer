@@ -6,6 +6,7 @@ import com.upgard.dataaccesslayer.exceptions.CityDetailsNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service(value = "cityService")
@@ -28,6 +29,15 @@ public class CityServiceImpl implements CityService{
     public City getCityDetails(int id) throws CityDetailsNotFoundException {
         return cityDao.findById(id) ;
 
+    }
+
+    @Transactional
+    @Override
+    public List<City> acceptMultipleCityDetails(List<City> cities){
+        for (int i = 0 ; i < cities.size(); i++){
+            cities.set(i, acceptCityDetails(cities.get(i))) ;
+        }
+        return cities ;
     }
 
     @Override
