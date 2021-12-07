@@ -16,7 +16,7 @@ public class UserType {
     private int userTypeId ;
 
     @Column(nullable = false)
-    private String usetTypeName = "Customer";
+    private String userTypeName = "Customer";
 
     public int getUserTypeId() {
         return userTypeId;
@@ -27,10 +27,10 @@ public class UserType {
     }
 
     public String getUsetTypeName() {
-        return usetTypeName;
+        return userTypeName;
     }
 
-    public void setUsetTypeName(String usetTypeName) {
-        this.usetTypeName = usetTypeName;
+    public void setUsetTypeName(String userTypeName) {
+        this.userTypeName = userTypeName;
     }
 }
