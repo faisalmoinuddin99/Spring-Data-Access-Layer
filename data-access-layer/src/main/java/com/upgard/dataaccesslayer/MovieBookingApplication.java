@@ -19,6 +19,8 @@ public class MovieBookingApplication {
 
 		ApplicationContext context =  SpringApplication.run(MovieBookingApplication.class, args);
 
+
+
 		/*
 		CityDao cityDao = context.getBean(CityDao.class) ;
 		City city = new City() ;

@@ -7,6 +7,7 @@ import com.upgard.dataaccesslayer.exceptions.CustomerUserNameExistsException;
 import com.upgard.dataaccesslayer.exceptions.UserTypeDetailsNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service(value = "customerService")
 public class CustomerServiceImpl implements CustomerService{
@@ -19,6 +20,8 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer acceptCustomerDetails(Customer customer) throws CustomerUserNameExistsException, UserTypeDetailsNotFoundException {
+
+        userTypeService.getUserTypeDetails(customer.getUserType().getUserTypeId()) ;
         return customerDao.save(customer);
     }
 
