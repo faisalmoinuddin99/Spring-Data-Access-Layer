@@ -26,6 +26,7 @@ public class BookingSerivceImpl implements BookingService{
     @Override
     public Booking acceptBookingDetails(Booking booking) throws MovieTheatreDetailsNotFoundException, CustomerDetailsNotFoundException, MovieDetailsNotFoundException {
         movieTheatreService.getMovieTheatreDetails(booking.getMovieTheatre().getMovieTheatreId()) ;
+        customerService.getCustomerDetails(booking.getCustomer().getCustomerId()) ;
          bookingDao.save(booking) ;
          return booking ;
 

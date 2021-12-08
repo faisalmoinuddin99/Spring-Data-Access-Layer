@@ -21,6 +21,18 @@ public class Booking {
     @JoinColumn(name = "movie_theatre_id", nullable = false)
     private MovieTheatre movieTheatre ;
 
+    @ManyToOne
+    @JoinColumn(name = "customerId", nullable = false)
+    private Customer customer ;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public int getBookingId() {
         return bookingId;
     }

@@ -33,12 +33,12 @@ public class Customer {
     @JoinColumn(name = "languageId", nullable = false)
     private Language language ;
 
-    public int getCust_id() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCust_id(int cust_id) {
-        this.customerId = cust_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -79,5 +79,21 @@ public class Customer {
 
     public void setDateOfBirth(LocalDateTime dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 }

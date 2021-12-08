@@ -14,6 +14,9 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerDao customerDao ;
 
+    @Autowired
+    private UserTypeService userTypeService ;
+
     @Override
     public Customer acceptCustomerDetails(Customer customer) throws CustomerUserNameExistsException, UserTypeDetailsNotFoundException {
         return customerDao.save(customer);
