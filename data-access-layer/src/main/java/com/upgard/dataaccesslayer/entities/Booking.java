@@ -9,35 +9,39 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int booking_id ;
+    private int bookingId ;
 
     @Column(nullable = false)
-    private LocalDateTime booking_date ;
+    private LocalDateTime bookingDate ;
 
     @Column(nullable = false)
-    private int no_of_seat ;
+    private int noOfSeat ;
 
-    public int getBooking_id() {
-        return booking_id;
+    @ManyToOne
+    @JoinColumn(name = "movie_theatre_id", nullable = false)
+    private MovieTheatre movieTheatre ;
+
+    public int getBookingId() {
+        return bookingId;
     }
 
-    public void setBooking_id(int booking_id) {
-        this.booking_id = booking_id;
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
     }
 
-    public LocalDateTime getBooking_date() {
-        return booking_date;
+    public LocalDateTime getBookingDate() {
+        return bookingDate;
     }
 
-    public void setBooking_date(LocalDateTime booking_date) {
-        this.booking_date = booking_date;
+    public void setBookingDate(LocalDateTime bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
-    public int getNo_of_seat() {
-        return no_of_seat;
+    public int getNoOfSeat() {
+        return noOfSeat;
     }
 
-    public void setNo_of_seat(int no_of_seat) {
-        this.no_of_seat = no_of_seat;
+    public void setNoOfSeat(int noOfSeat) {
+        this.noOfSeat = noOfSeat;
     }
 }
