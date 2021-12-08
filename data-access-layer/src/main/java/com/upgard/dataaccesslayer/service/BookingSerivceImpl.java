@@ -5,6 +5,7 @@ import com.upgard.dataaccesslayer.entities.Booking;
 import com.upgard.dataaccesslayer.exceptions.BookingDetailsNotFoundException;
 import com.upgard.dataaccesslayer.exceptions.CustomerDetailsNotFoundException;
 import com.upgard.dataaccesslayer.exceptions.MovieDetailsNotFoundException;
+import com.upgard.dataaccesslayer.exceptions.MovieTheatreDetailsNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +18,16 @@ public class BookingSerivceImpl implements BookingService{
     private BookingDao bookingDao ;
 
     @Autowired
-    public MovieService movieService ;
+    public MovieTheatreService movieTheatreService ;
 
     @Autowired
     public CustomerService customerService ;
 
     @Override
-    public Booking acceptBookingDetails(Booking booking) throws MovieDetailsNotFoundException, CustomerDetailsNotFoundException {
-        return bookingDao.save(booking) ;
+    public Booking acceptBookingDetails(Booking booking) throws MovieTheatreDetailsNotFoundException, CustomerDetailsNotFoundException, MovieDetailsNotFoundException {
+        movieTheatreService.getMovieTheatreDetails(booking.getMovieTheatre().getMovieTheatreId()) ;
+         bookingDao.save(booking) ;
+         return booking ;
 
     }
 

@@ -44,4 +44,12 @@ public class Booking {
     public void setNoOfSeat(int noOfSeat) {
         this.noOfSeat = noOfSeat;
     }
+
+    public MovieTheatre getMovieTheatre() {
+        return movieTheatre;
+    }
+
+    public void setMovieTheatre(MovieTheatre movieTheatre) {
+        this.movieTheatre = movieTheatre;
+    }
 }
