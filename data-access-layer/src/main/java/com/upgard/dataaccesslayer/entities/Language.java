@@ -18,12 +18,22 @@ public class Language {
     @Column(nullable = false, unique = true)
     private String languageName ;
 
+    public Language(int languageId, String languageName) {
+        this.languageId = languageId;
+        this.languageName = languageName;
+    }
+
+    public Language() {
+
+    }
+
+    public Language(String languageName) {
+        this.languageName = languageName;
+    }
+
     public int getLanguageId() {
         return languageId;
     }
-
-
-
 
 
     public void setLanguageId(int languageId) {

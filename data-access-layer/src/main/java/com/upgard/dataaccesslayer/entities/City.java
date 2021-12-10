@@ -3,6 +3,8 @@ package com.upgard.dataaccesslayer.entities;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -19,8 +21,18 @@ public class City {
     private String cityName ;
 
 
-    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
-    private Set<Theatre> theatres ;
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Theatre> theatres ;
+
+
+    public City() {
+    }
+
+    public City(int cityId, String cityName, List<Theatre> theatres) {
+        this.cityId = cityId;
+        this.cityName = cityName;
+        this.theatres = theatres;
+    }
 
     public int getCityId() {
         return cityId;
@@ -36,5 +48,35 @@ public class City {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    public List<Theatre> getTheatres() {
+        return theatres;
+    }
+
+    public void setTheatres(List<Theatre> theatres) {
+        this.theatres = theatres;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityId=" + cityId +
+                ", cityName='" + cityName + '\'' +
+                ", theatres=" + theatres +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City)) return false;
+        City city = (City) o;
+        return getCityId() == city.getCityId() && getCityName().equals(city.getCityName()) && getTheatres().equals(city.getTheatres());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCityId(), getCityName(), getTheatres());
     }
 }

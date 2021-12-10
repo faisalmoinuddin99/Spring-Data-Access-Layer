@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer acceptCustomerDetails(Customer customer) throws CustomerUserNameExistsException, UserTypeDetailsNotFoundException {
 
-        if(isPresent(customerDao.findByuserName(customer.getUserName()))){
+        if(isPresent(customerDao.findByUserName(customer.getUserName()))){
             throw new CustomerUserNameExistsException("This username is already taken") ;
         }
         userTypeService.getUserTypeDetails(customer.getUserType().getUserTypeId()) ;
@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer getCustomerDetailsByUsername(String username) throws CustomerDetailsNotFoundException {
-        return customerDao.findByuserName(username) ;
+        return customerDao.findByUserName(username) ;
     }
 
     @Override

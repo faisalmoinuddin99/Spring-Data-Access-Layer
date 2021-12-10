@@ -2,6 +2,7 @@ package com.upgard.dataaccesslayer;
 
 import com.upgard.dataaccesslayer.dao.*;
 import com.upgard.dataaccesslayer.entities.*;
+import com.upgard.dataaccesslayer.service.MovieService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -19,6 +20,14 @@ public class MovieBookingApplication {
 
 		ApplicationContext context =  SpringApplication.run(MovieBookingApplication.class, args);
 
+		LanguageDao languageDao = context.getBean(LanguageDao.class) ;
+		Language language = new Language() ;
+		language.setLanguageId(1);
+		language.setLanguageName("Hindi");
+
+		languageDao.save(language) ;
+		System.out.println(languageDao.findByLanguageName("Hindi").getLanguageName() ) ;
+		MovieService movieService = context.getBean(MovieService.class) ;
 
 
 		/*

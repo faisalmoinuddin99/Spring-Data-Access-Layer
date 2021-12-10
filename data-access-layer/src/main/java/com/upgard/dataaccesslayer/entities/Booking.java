@@ -2,6 +2,7 @@ package com.upgard.dataaccesslayer.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "booking")
@@ -25,11 +26,14 @@ public class Booking {
     @JoinColumn(name = "customerId", nullable = false)
     private Customer customer ;
 
-    public Customer getCustomer() {
-        return customer;
+    public Booking() {
     }
 
-    public void setCustomer(Customer customer) {
+    public Booking(int bookingId, LocalDateTime bookingDate, int noOfSeat, MovieTheatre movieTheatre, Customer customer) {
+        this.bookingId = bookingId;
+        this.bookingDate = bookingDate;
+        this.noOfSeat = noOfSeat;
+        this.movieTheatre = movieTheatre;
         this.customer = customer;
     }
 
@@ -63,5 +67,37 @@ public class Booking {
 
     public void setMovieTheatre(MovieTheatre movieTheatre) {
         this.movieTheatre = movieTheatre;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId=" + bookingId +
+                ", bookingDate=" + bookingDate +
+                ", noOfSeat=" + noOfSeat +
+                ", movieTheatre=" + movieTheatre +
+                ", customer=" + customer +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Booking)) return false;
+        Booking booking = (Booking) o;
+        return getBookingId() == booking.getBookingId() && getNoOfSeat() == booking.getNoOfSeat() && getBookingDate().equals(booking.getBookingDate()) && getMovieTheatre().equals(booking.getMovieTheatre()) && getCustomer().equals(booking.getCustomer());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBookingId(), getBookingDate(), getNoOfSeat(), getMovieTheatre(), getCustomer());
     }
 }

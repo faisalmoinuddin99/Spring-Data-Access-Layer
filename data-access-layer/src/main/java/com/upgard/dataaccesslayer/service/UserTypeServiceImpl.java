@@ -29,7 +29,7 @@ public class UserTypeServiceImpl implements UserTypeService{
 
     @Override
     public UserType getUserTypeDetailsFromUserTypeName(String userType) throws UserTypeDetailsNotFoundException {
-        return userTypeDao.findByuserTypeName(userType);
+        return userTypeDao.findByUserTypeName(userType);
     }
 
     @Override

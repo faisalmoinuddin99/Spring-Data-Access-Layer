@@ -29,13 +29,13 @@ public class LanguageServiceImpl implements LanguageService{
 
     @Override
     public Language getLanguageDetailsByLanguageName(String languageName) throws LanguageDetailsNotFoundException {
-        return languageDao.findBylanguageName(languageName) ;
+        return languageDao.findByLanguageName(languageName) ;
     }
 
     @Override
     public boolean deleteLanguage(int id) throws LanguageDetailsNotFoundException {
         Language savedLanguage = getLanguageDetails(id) ;
-        languageDao.delete(savedLanguage);
+        languageDao.delete(savedLanguage) ;
 
         return true;
     }

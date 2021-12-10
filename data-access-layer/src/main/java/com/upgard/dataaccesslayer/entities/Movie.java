@@ -9,7 +9,7 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int movie_id ;
+    private int movieId ;
 
     @Column(length = 200, nullable = false)
     private String movieName ;
@@ -45,7 +45,7 @@ public class Movie {
     }
 
     public Movie(int movie_id, String movieName, String movieDesc, LocalDateTime release_date, int duration, String coverPhotoUrl, String trailerUrl, Status status, Language language) {
-        this.movie_id = movie_id;
+        this.movieId = movie_id;
         this.movieName = movieName;
         this.movieDesc = movieDesc;
         this.release_date = release_date;
@@ -59,7 +59,7 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie{" +
-                "movie_id=" + movie_id +
+                "movie_id=" + movieId +
                 ", movieName='" + movieName + '\'' +
                 ", movieDesc='" + movieDesc + '\'' +
                 ", release_date=" + release_date +
@@ -96,11 +96,11 @@ public class Movie {
     }
 
     public int getMovie_id() {
-        return movie_id;
+        return movieId;
     }
 
     public void setMovie_id(int movie_id) {
-        this.movie_id = movie_id;
+        this.movieId = movie_id;
     }
 
     public String getMovieName() {

@@ -27,7 +27,10 @@ public class CityServiceImpl implements CityService{
 
     @Override
     public City getCityDetails(int id) throws CityDetailsNotFoundException {
-        return cityDao.findById(id) ;
+        return cityDao.findById(id)
+                .orElseThrow(
+                        () -> new CityDetailsNotFoundException("City Id not found: " + id)
+                ) ;
 
     }
 
@@ -42,16 +45,18 @@ public class CityServiceImpl implements CityService{
 
     @Override
     public City getMovieDetailsByCityName(String cityName) throws CityDetailsNotFoundException {
-        return null;
+        return cityDao.findByCityName(cityName) ;
     }
 
     @Override
     public boolean deleteCity(int id) throws CityDetailsNotFoundException {
-        return false;
+        City savedCity = getCityDetails(id) ;
+        cityDao.delete(savedCity);
+        return true;
     }
 
     @Override
     public List<City> getAllCityDetails() {
-        return null;
+        return cityDao.findAll();
     }
 }

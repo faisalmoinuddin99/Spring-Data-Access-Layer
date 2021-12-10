@@ -1,6 +1,8 @@
 package com.upgard.dataaccesslayer.dao;
 
 import com.upgard.dataaccesslayer.entities.City;
+import org.springframework.stereotype.Repository;
+
 
 public interface CityDao {
     public City save(City city) ; // CREATE

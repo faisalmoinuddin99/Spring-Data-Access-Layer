@@ -19,11 +19,11 @@ public class MovieTheatreServiceImpl implements MovieTheatreService{
     @Autowired
     private MovieTheatreDao movieTheatreDao ;
 
-    @Autowired
-    public Movie movie ;
+//    @Autowired
+//    public Movie movie ;
 
-    @Autowired
-    public Theatre theatre ;
+//    @Autowired
+//    public Theatre theatre ;
 
 
     @Override
